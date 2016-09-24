@@ -6,3 +6,5 @@ There are prebuilt versions for Windows, in the directories that start with `app
 When the program starts it will ask for a program directory. The directory, and its subdirectories, will be searched for `.py` files. It will also ask for a message to display at the top of the screen.
 
 If you want to build it yourself or modify the code, you will need [Processing 3](processing.org).
+
+If you have problems, try disabling OpenGL by setting the `useOpenGL` flag near the top to `false`.

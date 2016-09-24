@@ -3,6 +3,7 @@ import java.nio.file.Files;
 import javax.swing.JOptionPane;
 
 // Config
+boolean useOpenGL = true;
 float scrollSpeed = 125.0;
 float codeFontSize = 28;
 float codeFontLeading = 30;
@@ -28,8 +29,15 @@ String message;
 PFont codeFont;
 PFont titleFont;
 
+void settings() {
+  if(useOpenGL) {
+    size(displayWidth, displayHeight, P2D);
+  } else {
+    fullScreen();
+  }
+}
+
 void setup() {
-  fullScreen();
   codeFont = loadFont("codeFont.vlw");
   titleFont = loadFont("title.vlw");
   

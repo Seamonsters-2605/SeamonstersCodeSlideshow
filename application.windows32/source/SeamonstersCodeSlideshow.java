@@ -23,6 +23,7 @@ public class SeamonstersCodeSlideshow extends PApplet {
 
 
 // Config
+boolean useOpenGL = true;
 float scrollSpeed = 125.0f;
 float codeFontSize = 28;
 float codeFontLeading = 30;
@@ -48,8 +49,15 @@ String message;
 PFont codeFont;
 PFont titleFont;
 
+public void settings() {
+  if(useOpenGL) {
+    size(displayWidth, displayHeight, P2D);
+  } else {
+    fullScreen();
+  }
+}
+
 public void setup() {
-  
   codeFont = loadFont("codeFont.vlw");
   titleFont = loadFont("title.vlw");
   
@@ -186,7 +194,6 @@ public void getFilesRecursive(File f, String extension) {
     codeFiles.add(contents);
   }
 }
-  public void settings() {  fullScreen(); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "SeamonstersCodeSlideshow" };
     if (passedArgs != null) {
