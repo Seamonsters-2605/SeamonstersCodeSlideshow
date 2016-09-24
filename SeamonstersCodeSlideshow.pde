@@ -2,10 +2,15 @@ import java.util.*;
 import java.nio.file.Files;
 import javax.swing.JOptionPane;
 
+// Config
 float scrollSpeed = 125.0;
-float codeFontSize = 20;
-float codeFontLeading = 22;
+float codeFontSize = 28;
+float codeFontLeading = 30;
 int minLinesOnScreen = 32;
+float locFontSize = 48;
+float titleFontSize = 112;
+
+
 
 boolean loaded = false;
 
@@ -27,11 +32,19 @@ void setup() {
   fullScreen();
   codeFont = loadFont("codeFont.vlw");
   titleFont = loadFont("title.vlw");
+  
   backgroundImage = loadImage("background.png");
+  PGraphics backgroundTint = createGraphics(backgroundImage.width, backgroundImage.height);
+  backgroundTint.beginDraw();
+  backgroundTint.tint(127);
+  backgroundTint.image(backgroundImage, 0, 0);
+  backgroundTint.endDraw();
+  backgroundImage = backgroundTint;
   
   overlayImage = loadImage("CTRLines.png");
   PGraphics overlayScale = createGraphics(width, height);
   overlayScale.beginDraw();
+  overlayScale.tint(255, 192);
   overlayScale.image(overlayImage, 0, 0, width, height);
   overlayScale.endDraw();
   overlayImage = overlayScale;
@@ -57,7 +70,6 @@ void draw() {
   }
   
   background(0);
-  tint(127);
   image(backgroundImage, width/2 - backgroundImage.width/2, height/2 - backgroundImage.height/2);
   noTint();
   
@@ -78,16 +90,16 @@ void draw() {
   }
   
   fill(0, 0, 0);
-  rect(0, 0, width, 84);
-  textFont(titleFont, codeFontSize);
+  rect(0, 0, width, titleFontSize + 4);
+  textFont(titleFont, titleFontSize);
   
   fill(0, 255, 0);
   textAlign(RIGHT, TOP);
-  textSize(36);
+  textSize(locFontSize);
   text(linesOfCode + " lines of code.", width, 2);
   
   textAlign(LEFT, TOP);
-  textSize(80);
+  textSize(titleFontSize);
   text(message, 0, 2);
   
   image(overlayImage, 0, 0);
