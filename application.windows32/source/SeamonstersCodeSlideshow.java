@@ -51,7 +51,7 @@ PFont titleFont;
 
 public void settings() {
   if(useOpenGL) {
-    size(displayWidth, displayHeight, P2D);
+    fullScreen(P2D);
   } else {
     fullScreen();
   }
