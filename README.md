@@ -1,7 +1,7 @@
 # SeamonstersCodeSlideshow
 A nice-looking code display specifically designed for the Seamonsters team competition code.
 
-There are prebuilt versions for Windows, in the directories that start with `application.`. For the 32-bit Windows version, you will need Java.
+There are prebuilt versions for Windows [here](https://github.com/Seamonsters-2605/SeamonstersCodeSlideshow/releases). For the 32-bit version, you will need Java.
 
 When the program starts it will ask for a program directory (the dialog box might be hidden behind other windows). The directory, and its subdirectories, will be searched for `.py` files. It will also ask for a message to display at the top of the screen.
 
